@@ -20,7 +20,9 @@
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     UIWindow *window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
-    window.rootViewController = [HomeViewController new];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: [HomeViewController new]];
+    navigation.navigationBar.tintColor = UIColor.systemBrownColor;
+    window.rootViewController = navigation;
     self.window = window;
     [window makeKeyAndVisible];
 }
