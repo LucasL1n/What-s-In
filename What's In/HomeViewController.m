@@ -5,16 +5,17 @@
 //  Created by roborock on 2021/12/9.
 //
 
-#import "ViewController.h"
+#import "HomeViewController.h"
 
-@interface ViewController ()
+@interface HomeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = UIColor.blueColor;
     // Do any additional setup after loading the view.
 }
 
