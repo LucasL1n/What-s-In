@@ -8,12 +8,26 @@
 #import "HomeViewController.h"
 #import <Masonry.h>
 
-@interface ItemData : NSObject<NSCoding>
+@protocol Category <NSObject>
+@property (strong, nonatomic) NSString *name;
+@end
+
+@protocol Storable <NSObject>
+- (void)save;
+- (void)load;
+@end
+
+@interface ItemData : NSObject<NSCoding, NSSecureCoding, Category>
 @property (strong, nonatomic) NSString * name;
 -(instancetype)initWithName: (NSString *)name;
 @end
 
 @implementation ItemData
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (instancetype)initWithName: (NSString *)name {
     if (self = [self init]) {
         self.name = name;
@@ -30,11 +44,10 @@
     }
     return self;
 }
-
 @end
 
 @interface HomeViewController ()
-@property (strong, nonatomic) NSMutableArray<ItemData *> *datasource;
+@property (strong, nonatomic) NSMutableArray<id<Category>> *datasource;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIAlertController *alertView;
 @property (strong, nonatomic) UITextField *editingField;
@@ -47,6 +60,8 @@
     
     self.datasource = [NSMutableArray array];
     
+    [self loadData];
+    
     self.title = @"What's In 🏡";
     self.view.backgroundColor = UIColor.whiteColor;
     
@@ -56,7 +71,7 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     [self.view addSubview: tableView];
-    tableView.backgroundColor = UIColor.systemMintColor;
+    tableView.backgroundColor = UIColor.whiteColor;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
@@ -64,7 +79,7 @@
         
 
     __weak typeof(self) weakSelf = self;
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Input name" message:@"Enter your house's nickname" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Input name" message:@"Enter name" preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         weakSelf.editingField = textField;
     }];
@@ -72,6 +87,7 @@
         ItemData *row = [[ItemData alloc] initWithName: [NSString stringWithFormat:@"%@", weakSelf.editingField.text]];
         [weakSelf.datasource addObject:row];
         [weakSelf.tableView reloadData];
+        [weakSelf saveData];
     }];
     [alert addAction:confirmAction];
     self.alertView = alert;
@@ -81,6 +97,32 @@
 - (void)onPressAdd {
     [self presentViewController:self.alertView animated:true completion:^{}];
     NSLog(@"Press add.");
+}
+
+- (void)saveData {
+    NSError *error;
+    NSError *writeToFileError;
+    NSString *docPath=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"data.archiver"];
+    [[NSKeyedArchiver archivedDataWithRootObject:self.datasource requiringSecureCoding:true error: &error] writeToFile:docPath options:NSDataWritingAtomic error:&writeToFileError];
+    if (error) {
+        NSLog(@"%@", error.description);
+    } else if (writeToFileError) {
+        NSLog(@"%@", writeToFileError.description);
+    } else {
+        NSLog(@"Update success.");
+    }
+}
+
+- (void)loadData {
+    NSError *error;
+    NSString *docPath=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"data.archiver"];
+    self.datasource = [NSKeyedUnarchiver unarchivedObjectOfClasses: [NSSet setWithArray: @[[ItemData class], [NSMutableArray class]]] fromData:[NSData dataWithContentsOfFile:docPath] error:&error];
+    [self.tableView reloadData];
+    if (error) {
+        NSLog(@"%@", error.description);
+    } else {
+        NSLog(@"%@", self.datasource.debugDescription);
+    }
 }
 
 

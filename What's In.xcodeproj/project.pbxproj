@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A412C87927632C0500900985 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A412C87827632C0500900985 /* DataManager.m */; };
+		A412C87C27632FBA00900985 /* CategoryDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412C87B27632FBA00900985 /* CategoryDataItem.m */; };
+		A412C87F2763337600900985 /* ObjectDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412C87E2763337600900985 /* ObjectDataItem.m */; };
+		A412C88227634BDC00900985 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A412C88027634BDC00900985 /* DataModel.xcdatamodeld */; };
 		A4E807C12761D3F5001E6D37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E807C02761D3F5001E6D37 /* AppDelegate.m */; };
 		A4E807C42761D3F5001E6D37 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E807C32761D3F5001E6D37 /* SceneDelegate.m */; };
 		A4E807C72761D3F5001E6D37 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E807C62761D3F5001E6D37 /* HomeViewController.m */; };
@@ -19,6 +23,14 @@
 /* Begin PBXFileReference section */
 		10CF6C799D0E54768297B892 /* libPods-What's In.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-What's In.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		252049017C07C11A911F637E /* Pods-What's In.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-What's In.debug.xcconfig"; path = "Target Support Files/Pods-What's In/Pods-What's In.debug.xcconfig"; sourceTree = "<group>"; };
+		A412C8762763238600900985 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		A412C87727632C0500900985 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A412C87827632C0500900985 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		A412C87A27632FBA00900985 /* CategoryDataItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryDataItem.h; sourceTree = "<group>"; };
+		A412C87B27632FBA00900985 /* CategoryDataItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryDataItem.m; sourceTree = "<group>"; };
+		A412C87D2763337600900985 /* ObjectDataItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectDataItem.h; sourceTree = "<group>"; };
+		A412C87E2763337600900985 /* ObjectDataItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectDataItem.m; sourceTree = "<group>"; };
+		A412C88127634BDC00900985 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		A45A34B42762053100079EAE /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E807BC2761D3F5001E6D37 /* What's In.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "What's In.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E807BF2761D3F5001E6D37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,6 +61,7 @@
 		A4E807B32761D3F5001E6D37 = {
 			isa = PBXGroup;
 			children = (
+				A412C8762763238600900985 /* Location.gpx */,
 				A4E807BE2761D3F5001E6D37 /* What's In */,
 				A4E807BD2761D3F5001E6D37 /* Products */,
 				D20F59EC321465D23970DAA6 /* Pods */,
@@ -78,6 +91,13 @@
 				A4E807CD2761D3F6001E6D37 /* LaunchScreen.storyboard */,
 				A4E807D02761D3F6001E6D37 /* Info.plist */,
 				A4E807D12761D3F6001E6D37 /* main.m */,
+				A412C87727632C0500900985 /* DataManager.h */,
+				A412C87827632C0500900985 /* DataManager.m */,
+				A412C87A27632FBA00900985 /* CategoryDataItem.h */,
+				A412C87B27632FBA00900985 /* CategoryDataItem.m */,
+				A412C87D2763337600900985 /* ObjectDataItem.h */,
+				A412C87E2763337600900985 /* ObjectDataItem.m */,
+				A412C88027634BDC00900985 /* DataModel.xcdatamodeld */,
 			);
 			path = "What's In";
 			sourceTree = "<group>";
@@ -203,6 +223,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E807C72761D3F5001E6D37 /* HomeViewController.m in Sources */,
+				A412C88227634BDC00900985 /* DataModel.xcdatamodeld in Sources */,
+				A412C87C27632FBA00900985 /* CategoryDataItem.m in Sources */,
+				A412C87927632C0500900985 /* DataManager.m in Sources */,
+				A412C87F2763337600900985 /* ObjectDataItem.m in Sources */,
 				A4E807C12761D3F5001E6D37 /* AppDelegate.m in Sources */,
 				A4E807D22761D3F6001E6D37 /* main.m in Sources */,
 				A4E807C42761D3F5001E6D37 /* SceneDelegate.m in Sources */,
@@ -350,6 +374,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,6 +402,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -411,6 +437,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A412C88027634BDC00900985 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A412C88127634BDC00900985 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = A412C88127634BDC00900985 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A4E807B42761D3F5001E6D37 /* Project object */;
 }

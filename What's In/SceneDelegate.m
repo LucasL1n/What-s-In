@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "HomeViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface SceneDelegate ()
 
@@ -21,7 +22,7 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     UIWindow *window = [[UIWindow alloc] initWithWindowScene: (UIWindowScene*)scene];
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: [HomeViewController new]];
-    navigation.navigationBar.tintColor = UIColor.systemBrownColor;
+    navigation.navigationBar.tintColor = UIColor.brownColor;
     window.rootViewController = navigation;
     self.window = window;
     [window makeKeyAndVisible];
@@ -60,5 +61,18 @@
     // to restore the scene back to its current state.
 }
 
+
+- (void)createPersistentConainer {
+    NSPersistentContainer *container = [[NSPersistentContainer alloc] initWithName:@"DataModel"];
+    [container loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription * description, NSError * error) {
+        if (error) {
+            NSLog(@"Error: %@", error.debugDescription);
+            return;
+        }
+        NSLog(@"Load stores success.");
+    }];
+//    ObjectMO * obj = [ObjectMO new];
+//    CategoryMO * cate = [CategoryMO new];
+}
 
 @end
